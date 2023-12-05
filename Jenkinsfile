@@ -38,7 +38,7 @@ pipeline {
                 }
                 withCredentials([usernamePassword(credentialsId: '2770e446-5cfe-423d-91c0-1f1ffa305476', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
                     bat """docker pull mariaabr/student-registry-app:1.0.0
-                    docker run -d -p 8080:8080 mariaabr/student-registry-app:1.0.0 """
+                    docker run -d --name student_registry_app -p 8080:8080 mariaabr/student-registry-app:1.0.0 """
                 }
             }
         }
